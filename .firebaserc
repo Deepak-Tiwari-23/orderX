@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "heroes-d3220": {
+      "hosting": {
+        "angular-tour-of-heroes": [
+          "heroes-d3220"
+        ]
+      }
+    }
+  }
+}
