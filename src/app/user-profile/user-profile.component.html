@@ -1,0 +1,37 @@
+<div class="page-container">
+    <p class="welcomeTag">You have successfully created your account. <br> Please fill the registeration form to proceed.</p>
+
+    <div class="formContainer">
+        <form [formGroup]="registerationForm" style="width: 90%;">
+            <mat-card class="singnInCard" style="background: #666666;">
+                <mat-card-header>
+                    <mat-card-title><h2 style="color: #ffbf54; font-size: 24px; font-weight: bold;">Enter your details</h2></mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content style="display: flex; flex-direction: column;">
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your Name *</div>
+                        <input autocomplete="off" class="inputField" #nameCtrl style="color: grey; width: 100%;" matInput formControlName="name">
+                        <mat-error style="font-weight: bold; font-size: 12px; margin-top: -2px;" *ngIf="hasErrors('name')">{{getErrorMessage('name')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your phone number *</div>
+                        <input autocomplete="off" class="inputField" #phoneNumberCtrl style="color: grey; width: 100%;" matInput formControlName="phoneNumber">
+                        <mat-error style="font-weight: bold; font-size: 12px; margin-top: -2px;" *ngIf="hasErrors('phoneNumber')">{{getErrorMessage('phoneNumber')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your address *</div>
+                        <input autocomplete="off" class="inputField" #addressCtrl style="color: grey; width: 100%;" matInput formControlName="address">
+                        <mat-error style="font-weight: bold; font-size: 12px; margin-top: -2px;" *ngIf="hasErrors('address')">{{getErrorMessage('address')}}</mat-error>
+                    </mat-form-field>
+                </mat-card-content>
+
+                <mat-card-actions style="display: flex; justify-content:flex-end; margin-bottom: 15px;">
+                    <button  class="right actionButtons" (click)="register()">Register</button>
+                  </mat-card-actions>
+            </mat-card>
+        </form>
+    </div>
+</div>

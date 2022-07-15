@@ -1,0 +1,43 @@
+<div class="page-container">
+    <p *ngIf="showForm == false" class="welcomeTag">Welcome to orderX, Please select an Option</p>
+
+    <div class="optionContainer" *ngIf="showForm == false">
+        <button class="optionButton" (click)="setSignInOption('signUp')">Sign Up</button>
+        <button class="optionButton" (click)="setSignInOption('signIn')">Sign In</button>
+    </div>
+
+    <div class="formContainer" *ngIf="showForm == true">
+        <form [formGroup]="signinForm" style="width: 90%;">
+            <mat-card class="singnInCard" style="background: #666666;">
+                <mat-card-header>
+                    <mat-card-title><h2 style="color: #ffbf54; font-size: 24px; font-weight: bold;">Enter your details</h2></mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content style="display: flex; flex-direction: column;">
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your email id *</div>
+                        <input autocomplete="off" class="inputField" #emailCtrl style="color: grey; width: 100%;" matInput formControlName="email">
+                        <mat-error style="font-weight: bold; font-size: 12px; margin-top: -2px;" *ngIf="hasErrors('email')">{{getErrorMessage('email')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your password *</div>
+                        <input autocomplete="off" class="inputField" #passwordCtrl style="color: grey; width: 100%;" matInput formControlName="password">
+                        <mat-error style="font-weight: bold; font-size: 12px; margin-top: -2px;" *ngIf="hasErrors('password')">{{getErrorMessage('password')}}</mat-error>
+                    </mat-form-field>
+                </mat-card-content>
+
+                <div (change)="rememberMeToggle()" style="color: #ffbf54; margin-bottom: 30px;">
+                    <input type="checkbox">
+                    Remember me!
+                </div>
+
+                <mat-card-actions style="display: flex; justify-content:flex-end; margin-bottom: 15px;">
+                    <button class="actionButtons" (click)="showForm = false">Back</button>
+                    <button *ngIf="signInOption == 'signUp'"  class="right actionButtons" (click)="signUpMethod()">Sign Up</button>
+                    <button *ngIf="signInOption == 'signIn'"  class="right actionButtons" (click)="signInMethod()">Sign In</button>
+                  </mat-card-actions>
+            </mat-card>
+        </form>
+    </div>
+</div>

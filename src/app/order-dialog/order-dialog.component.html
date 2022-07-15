@@ -1,0 +1,69 @@
+<div class="page-container">
+    <div class="formContainer">
+        <form [formGroup]="orderForm" style="width: 100%;">
+            <mat-card style="background: #666666;">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h2 style="color: #ffbf54; font-size: 24px; font-weight: bold;">Please fill the details</h2>
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content style="display: flex; flex-direction: column;">
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter Product Name *</div>
+                        <input autocomplete="off" class="inputField" #productNameCtrl style="color: grey; width: 100%;"
+                            matInput formControlName="productName">
+                        <mat-error style="font-weight: bold; font-size: 12px;"
+                            *ngIf="hasErrors('productName')">{{getErrorMessage('productName')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field style="margin-top: -10px;" class="full-width-field formField">
+                        <div class="label">Enter order due date *</div>
+                        <input class="inputField" matInput [matDatepicker]="picker" formControlName="orderDueDate" autocomplete="off">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error style="font-weight: bold; font-size: 12px;"
+                            *ngIf="hasErrors('orderDueDate')">{{getErrorMessage('orderDueDate')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your name *</div>
+                        <input autocomplete="off" class="inputField" #customerNameCtrl style="color: grey; width: 100%;"
+                            matInput formControlName="customerName">
+                        <mat-error style="font-weight: bold; font-size: 12px;"
+                            *ngIf="hasErrors('customerName')">{{getErrorMessage('customerName')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your phone number *</div>
+                        <input autocomplete="off" class="inputField" #customerPhoneCtrl
+                            style="color: grey; width: 100%;" matInput formControlName="customerPhone">
+                        <mat-error style="font-weight: bold; font-size: 12px;"
+                            *ngIf="hasErrors('customerPhone')">{{getErrorMessage('customerPhone')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter your address *</div>
+                        <input autocomplete="off" class="inputField" #customerAddressCtrl
+                            style="color: grey; width: 100%;" matInput formControlName="customerAddress">
+                        <mat-error style="font-weight: bold; font-size: 12px;"
+                            *ngIf="hasErrors('customerAddress')">{{getErrorMessage('customerAddress')}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-field formField">
+                        <div class="label">Enter product amount *</div>
+                        <input autocomplete="off" class="inputField" #amountCtrl style="color: grey; width: 100%;"
+                            matInput formControlName="amount">
+                        <mat-error style="font-weight: bold; font-size: 12px;"
+                            *ngIf="hasErrors('amount')">{{getErrorMessage('amount')}}</mat-error>
+                    </mat-form-field>
+                </mat-card-content>
+
+                <mat-card-actions style="display: flex; justify-content:flex-end; margin-bottom: 15px;">
+                    <button class="right actionButtons" (click)="close()">Back</button>
+                    <button class="right actionButtons" (click)="createOrder()">Create</button>
+                </mat-card-actions>
+            </mat-card>
+        </form>
+    </div>
+</div>

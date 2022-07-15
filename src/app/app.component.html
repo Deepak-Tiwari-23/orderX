@@ -1,7 +1,12 @@
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-</nav>
+<mat-toolbar class="mainHeading" style="display: flex; justify-content: space-between; background: #666666;">
+    <h1 style="color: #ffbf54;">{{title}}</h1>
+
+    <button *ngIf="loggedIn" mat-mini-fab (click)="logout()" class="logoutButton">
+        <mat-icon style="color: #ffbf54;" class="material-icons-outlined" id="logoutId">
+            logout
+        </mat-icon>
+    </button>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+<!-- <app-messages></app-messages> -->
